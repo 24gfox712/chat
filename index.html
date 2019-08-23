@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head onload="name()">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title></title>
@@ -22,8 +22,9 @@
   <pre id="input" contenteditable="true"></pre>
 </body>
 <script>
+  function name(){
   var name1 = prompt("What is your name", "name");
-
+  }
   var b = Bugout("bugout-chat-tutorial");
 
   b.on("seen", function(name1) { log(name1 + " [ seen ]"); });
