@@ -27,8 +27,8 @@
   }
   var b = Bugout("bugout-chat-tutorial");
 
-  b.on("seen", function(name1) { log(name1 + " [ seen ]"); });
-  b.on("left", function(name1) { log(name1 + " [ left ]"); } );
+  b.on("seen", function() { log(name1 + " [ seen ]"); });
+  b.on("left", function() { log(name1 + " [ left ]"); } );
   log(name1 + " [ me ]");
   
   b.on("message", function(name1, message) {
