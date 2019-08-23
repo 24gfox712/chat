@@ -25,6 +25,7 @@
   log("Hello world!");
 
   var b = Bugout("bugout-chat-tutorial");
+  b.on("left", function(address) { log(address + " [ left ]"); });
   b.on("seen", function(address) { log(address + " [ seen ]"); });
   log(b.address() + " [ me ]");
   
