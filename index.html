@@ -21,13 +21,13 @@
   <pre id="log"></pre>
   <pre id="input" contenteditable="true"></pre>
 </body>
-<script>  
-  log("");
+<script>
+  log("Hello world!");
 
   var b = Bugout("bugout-chat-tutorial");
 
   b.on("seen", function(address) { log(address + " [ seen ]"); });
-  b.on("left", function(address) { log(address + " [ left ]"); });
+  b.on("left", function(address) { log(address + " [ left ]"); } );
   log(b.address() + " [ me ]");
   
   b.on("message", function(address, message) {
@@ -43,7 +43,6 @@
       ev.preventDefault();
     }
   }
-  
 
 </script>
 </html>
