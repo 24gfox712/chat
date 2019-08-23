@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head onload="name()">
+<head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title></title>
@@ -22,17 +22,16 @@
   <pre id="input" contenteditable="true"></pre>
 </body>
 <script>
-  function name(){
-  var name1 = prompt("What is your name", "name");
-  }
+  log("Hello world!");
+
   var b = Bugout("bugout-chat-tutorial");
 
-  b.on("seen", function() { log(name1 + " [ seen ]"); });
-  b.on("left", function() { log(name1 + " [ left ]"); } );
-  log(name1 + " [ me ]");
+  b.on("seen", function(address) { log(address + " [ seen ]"); });
+  b.on("left", function(address) { log(address + " [ left ]"); } );
+  log(b.address() + " [ me ]");
   
-  b.on("message", function(name1, message) {
-    log(name1 + ": " + message);
+  b.on("message", function(address, message) {
+    log(address + ": " + message);
   });
 
   document.getElementById("input").onkeydown = function(ev) {
