@@ -22,16 +22,16 @@
   <pre id="input" contenteditable="true"></pre>
 </body>
 <script>
-  log("Hello world!");
+  var name1 = prompt("What is your name", "name");
 
   var b = Bugout("bugout-chat-tutorial");
 
-  b.on("seen", function(address) { log(address + " [ seen ]"); });
-  b.on("left", function(address) { log(address + " [ left ]"); } );
-  log(b.address() + " [ me ]");
+  b.on("seen", function(name1) { log(name1 + " [ seen ]"); });
+  b.on("left", function(name1) { log(name1 + " [ left ]"); } );
+  log(name1 + " [ me ]");
   
-  b.on("message", function(address, message) {
-    log(address + ": " + message);
+  b.on("message", function(name1, message) {
+    log(name1 + ": " + message);
   });
 
   document.getElementById("input").onkeydown = function(ev) {
