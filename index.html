@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var user=getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Please enter a name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+</script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scala=e=1" name="viewport">
   <title></title>
-  <link rel="shortcut icon" href="images.png" type="image/x-icon" />
   <style>
     body { background-color: #333; font-size: 1.5em; padding: 0em 0.25em; }
     pre { color: #fff; white-space: pre-wrap; word-wrap: break-word; text-shadow: 0 0 10px #ccc; }
@@ -14,40 +49,26 @@
   <script>
     function log(message) {
       document.getElementById("log").textContent += message + "\n";
-    };
-
+    }
   </script>
   <script src="https://chr15m.github.io/bugout/bugout.min.js" type="application/javascript"></script>
 </head>
 <body>
-<script>
-    function title(title){
-      var num = title + 1
-      var title1 = "Users Online " + num
-      document.title = title1
-    };
-    
-</script>
   <pre id="log"></pre>
   <pre id="input" contenteditable="true"></pre>
 </body>
 <script>
-  var name = prompt("Enter a display name", "name");
-  log("Welcome " + name);
   var b = Bugout("bugout-chat-tutorial");
   b.on("seen", function(address) { log("Someone Has Joined"); });
-  log(name + " [ me ]");
+  log(user + " [ me ]");
   
   b.on("message", function(address, message) {
     log(message);
   });
-  b.on("connections", function(count){ 
-    title(count)
-  });
   document.getElementById("input").onkeydown = function(ev) {
     if (ev.keyCode == 13) {
       if (b.lastwirecount) {
-         var msg = name + ": " + ev.target.textContent 
+         var msg = user + ": " + ev.target.textContent 
         b.send(msg);
         ev.target.textContent = "";
       }
