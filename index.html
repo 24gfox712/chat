@@ -31,7 +31,7 @@
   log(name + " [ me ]");
   
   b.on("message", function(address, message) {
-    log(address + ": " + message);
+    log(message);
   });
 
   document.getElementById("input").onkeydown = function(ev) {
