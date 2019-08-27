@@ -79,6 +79,18 @@
       right: -5px;
       transition: 0.5s;
     }
+        .openbtn1 {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      position: absolute;
+      right: -5px;
+      top: -10;
+      transition: 0.5s;
+    }
     
     .openbtn:hover {
       background-color: #444;
@@ -118,7 +130,7 @@
     
     <div id="main">
       <button id="open" class="openbtn" onclick="openNav()">&#9776;</button> 
-      <button id="open" onclick="openNav()">&#9776;</button> 
+      <button id="open" class="openbtn1" onclick="openNav()">&#9754;</button> 
       <pre id="log"></pre>
       <pre id="input" contenteditable="true"></pre>
     </div>
