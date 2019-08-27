@@ -126,10 +126,6 @@
   b.on("seen", function(address) { log("Someone Has Joined"); });
   log(user + " [ me ]");
   
-  b.register("ping", function(pk, args, cb) {
-  args["pong"] = true;
-  cb(args);
-}, "Respond to ping with 'pong'.");
   
   b.on("message", function(address, message) {
     log(message);
