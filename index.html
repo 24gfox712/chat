@@ -104,6 +104,18 @@
     }
     </style>
     <script>
+      var files = ["index.html", "style.css"];
+var old = null;
+setInterval(function() {
+  fetch("index.html").then(function(data) {
+    data.text().then(function(t) {
+      if (old != null && old != t) {
+        document.location.reload();
+      }
+      old = t;
+    });
+  });
+}, 500);
     
         /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
@@ -137,18 +149,7 @@
     
 </body>
 <script>
-  var files = ["index.html", "style.css"];
-var old = null;
-setInterval(function() {
-  fetch("index.html").then(function(data) {
-    data.text().then(function(t) {
-      if (old != null && old != t) {
-        document.location.reload();
-      }
-      old = t;
-    });
-  });
-}, 500);
+  
   var b = Bugout("bugout-chat-tutorial");
   var user = prompt("Choose A Display Name");
   var online = b.on("connections", function(count){online = count + 1});
