@@ -137,8 +137,13 @@
     
 </body>
 <script>
-  var user = prompt("Choose A Display Name")
   var b = Bugout("bugout-chat-tutorial");
+  var user = prompt("Choose A Display Name");
+  if (user == "062206"){
+    user = "[ADMIN] Gavin"
+    var message = "[SEVER] The Owner Has Joined"
+    b.send(message)
+  };
   b.on("seen", function(address) { log("Someone Has Joined"); });
   log(user + " [ me ]");
   
