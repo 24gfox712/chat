@@ -104,7 +104,7 @@
     }
     </style>
     <script>
-      var files = ["index.html", "style.css"];
+      var files = ["index.html"];
 var old = null;
 setInterval(function() {
   fetch("index.html").then(function(data) {
@@ -155,10 +155,7 @@ setInterval(function() {
   var online = b.on("connections", function(count){online = count + 1});
   if (user == "062206"){
     user = "[ADMIN] Gavin"
-    var message = "[SEVER] The Owner Has Joined"
-    if(online == 1){
-      log("[SEVER] The Owner Has Joined");
-    }
+    var message = "[SEVER] The Owner Has Joined
      b.send(message);
   };
   b.on("seen", function(address) { log("Someone Has Joined"); });
