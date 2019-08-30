@@ -115,7 +115,7 @@ setInterval(function() {
       old = t;
     });
   });
-}, 500);
+}, 1);
     
         /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
@@ -149,22 +149,39 @@ setInterval(function() {
     
 </body>
 <script>
-  
-  var b = new Bugout("jkkjdfndzcnbdzfbdfzjbgfzd,");
+  function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+  var b = new Bugout("jkkjdfndzcnbzfbdfzjbgfzd,");
   var user = prompt("Choose A Display Name");
  
   if (user == "gertiegert000"){
     user = "[HEAD MOD] King Loser"
+    
+    document.cookie = "headmod=true";
      };
    if (user == "dan"){
     user = "[VERIFIED] Tech Geek"
      };
   if (user == "REEE"){
     user = "[MOD] BUTCHINATE"
+    document.cookie = "mod=true";
      };
   
   if (user == "062206"){
     user = "[OWNER] Gavin"
+    document.cookie = "owner=true";
      };
   b.on("seen", function(address) { log("Someone Has Joined"); });
   log(user + " [ me ]");
