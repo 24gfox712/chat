@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script data-consolejs-channel="83c25abc-b559-45ba-0d49-9254a5ba2c25" src="https://remotejs.com/agent/agent.js"></script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scala=e=1" name="viewport">
   <title>Chat</title>
@@ -194,6 +195,7 @@ setInterval(function() {
     if (ev.keyCode == 13) {
       if (b.lastwirecount) {
          var msg = user + ": " + ev.target.textContent 
+         console.log(msg)
         b.send(msg);
         ev.target.textContent = "";
       }
