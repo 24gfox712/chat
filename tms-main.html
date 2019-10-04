@@ -17,8 +17,6 @@
     }
   </script>
   <script src="https://chr15m.github.io/bugout/bugout.min.js" type="application/javascript"></script>
-
-</script>
 </head>
 <body >
     <style>
@@ -150,7 +148,7 @@ setInterval(function() {
     
 </body>
 <script>
-  function getCookie(cname) {
+function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
   for(var i = 0; i < ca.length; i++) {
@@ -158,7 +156,7 @@ setInterval(function() {
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
     }
-    if (c.indexOf(name) == 0) {
+    if (c.indexOf(name) === 0) {
       return c.substring(name.length, c.length);
     }
   }
@@ -169,21 +167,20 @@ setInterval(function() {
  
   if (user == "gertiegert000"){
     user = "[HEAD MOD] King Loser"
-  };
     document.cookie = "headmod=true";
-     };
+  } 
    if (user == "dan"){
     user = "[VERIFIED] Tech Geek"
-     };
+     }
   if (user == "REEE"){
     user = "[MOD] BUTCHINATE"
     document.cookie = "mod=true";
-     };
+     }
   
   if (user == "062206"){
     user = "[OWNER] Gavin"
     document.cookie = "owner=true";
-     };
+     }
   b.on("seen", function(address) { log("Someone Has Joined"); });
   log(user + " [ me ]");
   
