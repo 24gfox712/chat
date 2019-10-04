@@ -187,12 +187,12 @@ function getCookie(cname) {
   
   b.on("message", function(address, message) {
     log(message);
+    console.log(msg)
   });
   document.getElementById("input").onkeydown = function(ev) {
     if (ev.keyCode == 13) {
       if (b.lastwirecount) {
          var msg = user + ": " + ev.target.textContent 
-         console.log(msg)
         b.send(msg);
         ev.target.textContent = "";
       }
